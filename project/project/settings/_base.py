@@ -26,7 +26,6 @@ STATIC_URL = '/s/'
 STATICFILES_DIRS = (
     PROJECT_ROOT.child('static')
 )
-print PROJECT_ROOT
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
