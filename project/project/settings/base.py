@@ -1,4 +1,9 @@
 import os
+import sys
+from unipath import Path
+
+PROJECT_ROOT = Path(__file__).ancestor(1)
+sys.path.append(PROJECT_ROOT.child('apps'))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -8,18 +13,6 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
-    }
-}
 
 TIME_ZONE = 'America/Chicago'
 
@@ -33,16 +26,18 @@ USE_L10N = True
 
 USE_TZ = True
 
-MEDIA_ROOT = ''
+MEDIA_ROOT = PROJECT_ROOT.child('media')
 
-MEDIA_URL = ''
+MEDIA_URL = '/m/'
 
-STATIC_ROOT = ''
+STATIC_ROOT = PROJECT_ROOT.child('static_collected')
 
-STATIC_URL = '/static/'
+STATIC_URL = '/s/'
 
 STATICFILES_DIRS = (
+    PROJECT_ROOT.child('static')
 )
+print PROJECT_ROOT
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -50,7 +45,18 @@ STATICFILES_FINDERS = (
     # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-SECRET_KEY = '=jj9-l(g80pzs=v$8fc+wt#akcg@mmre(ft3p*6rbh3csr9=h5'
+SECRET_KEY = os.environ['SECRET_KEY']
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages'
+)
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -72,6 +78,7 @@ ROOT_URLCONF = 'project.urls'
 WSGI_APPLICATION = 'project.wsgi.application'
 
 TEMPLATE_DIRS = (
+    PROJECT_ROOT.child('templates'),
 )
 
 INSTALLED_APPS = (
@@ -81,8 +88,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.admin',
-    # 'django.contrib.admindocs',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
 )
 
 LOGGING = {
