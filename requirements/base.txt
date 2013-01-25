@@ -1,0 +1,5 @@
+-e git+https://github.com/django/django#egg=Django-dev
+Unipath
+psycopg2
+PIL
+django-compressor
