@@ -2,10 +2,10 @@ import os
 import sys
 from unipath import Path
 
-PROJECT_ROOT = Path(__file__).ancestor(1)
+PROJECT_ROOT = Path(__file__).ancestor(3)
 sys.path.append(PROJECT_ROOT.child('apps'))
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -13,27 +13,16 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
 TIME_ZONE = 'America/Chicago'
-
 LANGUAGE_CODE = 'en-us'
-
 SITE_ID = 1
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 MEDIA_ROOT = PROJECT_ROOT.child('media')
-
 MEDIA_URL = '/m/'
-
 STATIC_ROOT = PROJECT_ROOT.child('static_collected')
-
 STATIC_URL = '/s/'
-
 STATICFILES_DIRS = (
     PROJECT_ROOT.child('static')
 )
@@ -90,6 +79,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'south',
 )
 
 LOGGING = {
