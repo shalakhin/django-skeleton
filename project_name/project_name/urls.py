@@ -8,8 +8,8 @@ from django.conf import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # url(r'^$', 'project.views.home', name='home'),
-    # url(r'^project/', include('project.foo.urls')),
+    # url(r'^$', '{{ project_name }}.views.home', name='home'),
+    # url(r'^{{ project_name }}/', include('{{ project_name }}.foo.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
