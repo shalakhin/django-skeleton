@@ -1,4 +1,4 @@
-from .base import *
+from ._base import *
 
 
 SOUTH_TESTS_MIGRATE = False

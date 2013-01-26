@@ -24,7 +24,7 @@ MEDIA_URL = '/m/'
 STATIC_ROOT = PROJECT_ROOT.child('static_collected')
 STATIC_URL = '/s/'
 STATICFILES_DIRS = (
-    PROJECT_ROOT.child('static')
+    PROJECT_ROOT.child('static'),
 )
 
 STATICFILES_FINDERS = (
