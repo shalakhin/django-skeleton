@@ -28,6 +28,11 @@ MIDDLEWARE_CLASSES += (
 )
 
 INSTALLED_APPS += (
+    'django_coverage',
     'debug_toolbar',
     'django_extensions',
 )
+
+CELERY_ALWAYS_EAGER = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

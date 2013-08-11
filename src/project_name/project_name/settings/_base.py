@@ -1,5 +1,6 @@
 import os
 import sys
+import djcelery
 from unipath import Path
 
 PROJECT_ROOT = Path(__file__).ancestor(3)
@@ -12,6 +13,7 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+ALLOWED_HOSTS = ['localhost']
 MANAGERS = ADMINS
 TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
@@ -55,6 +57,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -69,6 +72,10 @@ TEMPLATE_DIRS = (
     PROJECT_ROOT.child('templates'),
 )
 
+PROJECT_APPS = (
+
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,7 +86,15 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'south',
-)
+    'social_auth',
+    'django_nose',
+    'djcelery',
+) + PROJECT_APPS
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
+SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
 
 LOGGING = {
     'version': 1,

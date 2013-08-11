@@ -1,5 +1,6 @@
 -r _base.txt
-ipdb
 ipython
+ipdb
 django-debug-toolbar
+django-coverage
 Werkzeug
