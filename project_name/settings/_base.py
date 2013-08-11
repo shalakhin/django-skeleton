@@ -73,7 +73,7 @@ TEMPLATE_DIRS = (
 )
 
 PROJECT_APPS = (
-
+    'core',
 )
 
 INSTALLED_APPS = (
