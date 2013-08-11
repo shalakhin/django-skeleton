@@ -1,23 +1,24 @@
 run:
 	python manage.py runserver_plus
 
-cs:
+collectstatic:
 	python manage.py collectstatic --noinput
 
-clear_cache:
-	python manage.py clear_cache
+makemessages:
+	python manage.py makemessages -a
+
+compilemessages:
+	python manage.py compilemessages
 
 test:
-	ROOT_URLCONF="{{ project_name }}.urls" REUSE_DB=1 python manage.py test
+	python manage.py test
+	
+clean_pyc:
+	find . -name \*.pyc -delete
+	find . -name \*.pyo -delete
+
+makemessagesjs:
+	python manage.py makemessages -d djangojs -a
 
 migrate:
 	python manage.py migrate
-
-compass:
-	cd static && compass watch
-
-coffee:
-	coffee -o static/js -wc static/coffee
-
-specs:
-	cd docs && xelatex -shell-escape *.tex
