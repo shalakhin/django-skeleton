@@ -2,6 +2,8 @@ from ._base import *
 from urlparse import urlparse
 import dj_database_url
 
+DEBUG = False
+
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config()
 

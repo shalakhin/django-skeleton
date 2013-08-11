@@ -6,7 +6,7 @@ def deploy():
     local('make test')
     local('heroku maintenance:on --app {{ project_name }}')
     local('git push heroku master')
-    local('heroku run --app {{ project_name }} make cs')
+    local('heroku run --app {{ project_name }} make collectstatic')
     local('heroku run --app {{ project_name }} python manage.py syncdb --all')
     local('heroku run --app {{ project_name }} python manage.py clear_cache')
     local('heroku maintenance:off --app {{ project_name }}')

@@ -3,6 +3,8 @@ import sys
 import djcelery
 from unipath import Path
 
+djcelery.setup_loader()
+
 PROJECT_ROOT = Path(__file__).ancestor(3)
 sys.path.append(PROJECT_ROOT.child('apps'))
 
