@@ -58,8 +58,8 @@ fab deploy
 
 ## TODO
 
-* [x] add `fabfile.py`
-* [] add `thirdparties.sh` to install `coffeescript`, `compass`, `sass`, `backbone` etc.
-* [] add `hooks` for validation of `print...`, `console.log...`, `import ipdb...`
-* [x] review `requriements/`
-* [x] review `settings/`
+- [x] add `fabfile.py`
+- [ ] add `thirdparties.sh` to install `coffeescript`, `compass`, `sass`, `backbone` etc.
+- [ ] add `hooks` for validation of `print...`, `console.log...`, `import ipdb...`
+- [x] review `requriements/`
+- [x] review `settings/`
